@@ -1,3 +1,4 @@
+import os
 from flask import render_template
 from flask import Flask
 import pandas as pd
@@ -8,17 +9,25 @@ matplotlib.use('Agg')
 
 app = Flask(__name__)
 
+
 @app.route('/coldcaller/')
 def index():
+    cc = ColdCaller()
+    if os.path.isfile('state.txt'):
+        cc.read_state('state.txt')
+    else:
+        cc.read_names('sample.txt')
 
-    with open('sample.txt') as f:
-        names = [name.strip() for name in f.readlines()]
-    cc = ColdCaller(names)
-    
+    winner = cc.choose()
+    cc.write_state('state.txt')
 
     fig, ax = plt.subplots()
     ax.barh(list(cc.students.keys()), cc.students.values())
+    ax.set_xlabel('probability of being called on next')
+    ax.set_ylabel('name')
 
     
-    plt.savefig("templates/foo.html", format='svg')
-    return render_template('foo.html')
+    plt.savefig("chart.svg", format='svg')
+    with open('chart.svg') as f:
+        svg = f.read()
+    return render_template('index.html', svg=svg, winner=winner)

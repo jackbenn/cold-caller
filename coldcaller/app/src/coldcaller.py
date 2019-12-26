@@ -5,10 +5,33 @@ import random
 class ColdCaller:
 
     def __init__(self, names=None):
+        self.students = None
+        self.ratio = 0.5
+        self.sequence = None
+
+    def read_names(self, filename):
+        with open(filename) as f:
+            names = [name.strip() for name in f.readlines()]
+
         self.students = {name: 1.0 for name in names}
         self._normalize()
-        self.ratio = 0.5
         self.sequence = []
+
+    def read_state(self, filename):
+        with open(filename) as f:
+            self.sequence = f.readline().strip().split(',')
+            self.students = {}
+            for line in f:
+                name, probability = line.split(',')
+                self.students[name] = float(probability.strip())
+            self._normalize()
+    
+    def write_state(self, filename):
+        with open(filename, 'w') as f:
+            f.write(','.join(self.sequence))
+            f.write('\n')
+            for name in self.students:
+                f.write(f"{name},{self.students[name]}\n")
 
     def _normalize(self):
         total = sum(self.students.values())
@@ -38,9 +61,8 @@ class ColdCaller:
 
 if __name__ == '__main__':
     filename = sys.argv[1]
-    with open(filename) as f:
-        names = [name.strip() for name in f.readlines()]
-    cc = ColdCaller(names)
+    cc = ColdCaller()
+    cc.read_names(filename)
     for _ in range(20):
         print(cc.hist())
         print(cc.choose())
@@ -49,3 +71,4 @@ if __name__ == '__main__':
     print("undoing")
     print(cc.hist())
     print(cc.choose())
+    cc.write_state("temp.txt")
