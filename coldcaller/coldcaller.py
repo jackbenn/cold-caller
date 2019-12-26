@@ -1,8 +1,9 @@
 import sys
 import random
 
+
 class ColdCaller:
-    
+
     def __init__(self, names=None):
         self.students = {name: 1.0 for name in names}
         self._normalize()
@@ -20,6 +21,7 @@ class ColdCaller:
                                 k=1)[0]
         self.students[winner] *= self.ratio
         self._normalize()
+        self.sequence.append(winner)
         return winner
 
     def hist(self):
@@ -28,11 +30,10 @@ class ColdCaller:
             hist += f'{name:10s}' + '*' * int(prob * 50) + '\n'
         return hist
 
-   def undo(self):
-        name = sequence.pop()
+    def undo(self):
+        name = self.sequence.pop()
         self.students[name] /= self.ratio
         self._normalize()
-
 
 
 if __name__ == '__main__':
@@ -43,4 +44,8 @@ if __name__ == '__main__':
     for _ in range(20):
         print(cc.hist())
         print(cc.choose())
-
+    print(cc.hist())
+    cc.undo()
+    print("undoing")
+    print(cc.hist())
+    print(cc.choose())
