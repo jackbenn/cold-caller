@@ -1,0 +1,9 @@
+Perry,Sidney,Charlie,Robin,Charlie,Perry,Chris,Reilly,Finley,Perry,Frankie,Chris,Reilly,Robin,Sidney,Robin,Finley,Chris,Frankie,Frankie,Charlie,Charlie,Sidney,Reilly,Sidney,Robin,Finley,Reilly,Robin,Frankie,Perry,Chris,Charlie,Reilly,Reilly,Frankie,Finley,Chris,Frankie,Sidney,Chris,Sidney,Charlie,Reilly,Finley,Robin,Perry,Robin,Chris,Frankie,Sidney,Perry,Sidney,Finley,Reilly,Sidney,Charlie,Chris,Frankie,Perry,Finley,Finley,Frankie,Robin,Perry,Perry,Finley,Reilly,Charlie,Robin,Robin,Frankie,Chris,Chris,Charlie,Reilly,Finley,Charlie,Robin,Finley,Perry,Perry,Reilly,Reilly,Sidney,Charlie,Chris,Frankie,Sidney,Robin,Frankie,Chris,Sidney,Finley,Perry,Charlie,Robin,Perry,Chris,Robin,Finley,Chris,Frankie,Frankie,Charlie,Sidney,Reilly,Finley,Sidney,Frankie,Chris,Charlie,Perry,Sidney,Finley,Reilly,Charlie,Reilly,Reilly,Robin,Chris,Frankie,Charlie,Finley,Reilly,Robin,Finley,Perry,Chris,Sidney,Robin,Chris,Frankie,Perry,Charlie,Frankie,Reilly,Sidney,Sidney,Sidney,Finley,Frankie,Perry,Reilly,Reilly,Finley,Robin,Perry,Robin,Charlie,Perry,Charlie,Chris,Reilly,Frankie,Chris,Charlie,Charlie,Robin,Robin,Perry,Frankie,Finley,Sidney,Frankie,Sidney,Chris,Frankie,Chris,Finley,Charlie,Sidney,Robin
+Frankie,0.04
+Charlie,0.08
+Finley,0.16
+Chris,0.08
+Sidney,0.08
+Robin,0.08
+Perry,0.32
+Reilly,0.16
